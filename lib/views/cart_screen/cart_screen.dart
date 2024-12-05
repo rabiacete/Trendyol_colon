@@ -22,8 +22,9 @@ class CartScreen extends StatelessWidget {
               "Sepetiniz boş!",
               style: TextStyle(fontSize: 18, color: Colors.grey),
             ),
-          );
+          ) ;
         }
+
 
         return Padding(
           padding: const EdgeInsets.all(16.0),
