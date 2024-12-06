@@ -10,7 +10,6 @@ import 'controllers/home_controller.dart';
 
 void main() {
   // HomeController'ı GetX ile başlat
-
   Get.put(CartController());
   Get.put(HomeController());
   Get.put(FavoritesController());
