@@ -80,7 +80,7 @@ class CategoryScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Text(
-                        "\$${products[index]["price"]}",
+                        "${products[index]["price"]} TL",
                         style: const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ),

@@ -10,7 +10,7 @@ import '../ProductDetailScreen/product_detail.dart';
 import '../cart_screen/cart_screen.dart';
 import '../../controllers/home_controller.dart';
 import '../category_screen/category_screen.dart';
-import '../favorites_screen/favorites_screen.dart'; // HomeController importunu ekledik
+import '../favorites_screen/favorites_screen.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
 
 
 
-    var controller = Get.find<HomeController>(); // HomeController'ı buluyoruz
+    var controller = Get.find<HomeController>(); // HomeController'ı buluyorum
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -76,27 +76,6 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 15.heightBox,
-
-                /* // Kategoriler
-                SizedBox(
-                  height: 40,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: categoriesList
-                        .map((category) => Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: Chip(
-                        backgroundColor: Colors.white,
-                        label: Text(
-                          category,
-                          style: const TextStyle(color: Colors.black),
-                        ),
-                      ),
-                    ))
-                        .toList(),
-                  ),
-                ),*/
-
 
 
                 SizedBox(
@@ -350,22 +329,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
 
-
-
-
-
-
-
-
               ],
             ),
           ),
         ),
       ),
-
-
-
-
 
 
       // Alt gezinme çubuğu
