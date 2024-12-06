@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controllers/cart_controller.dart';
+import '../../controllers/favorites_controller.dart';
 import '../cart_screen/cart_screen.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -18,12 +19,40 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CartController cartController = Get.find<CartController>();
+    final FavoritesController favoritesController = Get.put(FavoritesController());
+
+    Map<String, dynamic> product = {
+      "imagePath": imagePath,
+      "title": title,
+      "price": price,
+    };
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.orange,
         title: Text(title),
         actions: [
+          // Favori İkonu
+          Obx(() => IconButton(
+            icon: Icon(
+              favoritesController.isFavorite(product)
+                  ? Icons.favorite
+                  : Icons.favorite_border,
+              color: favoritesController.isFavorite(product) ? Colors.red : Colors.white,
+            ),
+            onPressed: () {
+              favoritesController.toggleFavorite(product);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    favoritesController.isFavorite(product)
+                        ? "Ürün favorilere eklendi!"
+                        : "Ürün favorilerden çıkarıldı!",
+                  ),
+                ),
+              );
+            },
+          )),
           // Sepet İkonu
           IconButton(
             icon: const Icon(Icons.shopping_cart_outlined),
@@ -105,3 +134,4 @@ class ProductDetailScreen extends StatelessWidget {
     );
   }
 }
+

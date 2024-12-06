@@ -54,6 +54,11 @@ const imgMarket = '/Users/rabsa/StudioProjects/Trendyol_colon/assets/images/mark
 const imgDolap = '/Users/rabsa/StudioProjects/Trendyol_colon/assets/images/dolap.png';
 const imgKupon = '/Users/rabsa/StudioProjects/Trendyol_colon/assets/images/kupon.png';
 const urun1 = '/Users/rabsa/StudioProjects/Trendyol_colon/assets/images/urun1.png';
+const urun2 = '/Users/rabsa/StudioProjects/Trendyol_colon/assets/images/urun2.jpeg';
+const urun3 = '/Users/rabsa/StudioProjects/Trendyol_colon/assets/images/urun3.jpeg';
+const urun4 = '/Users/rabsa/StudioProjects/Trendyol_colon/assets/images/urun4.jpeg';
+const urun5 = '/Users/rabsa/StudioProjects/Trendyol_colon/assets/images/urun5.png';
+const urun6 ='/Users/rabsa/StudioProjects/Trendyol_colon/assets/images/urun6.jpeg';
 
 
 

@@ -5,12 +5,15 @@ import 'package:trendyol_colon/consts/consts.dart';
 import 'package:trendyol_colon/views/home_screen/home_screen.dart';
 
 import 'controllers/cart_controller.dart';
+import 'controllers/favorites_controller.dart';
 import 'controllers/home_controller.dart';
 
 void main() {
   // HomeController'ı GetX ile başlat
   Get.put(CartController());
   Get.put(HomeController());
+  Get.put(FavoritesController());
+
   runApp(MyApp());
 }
 
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
     Get.put(CartController());
 
 
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );

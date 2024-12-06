@@ -5,12 +5,12 @@ import 'package:trendyol_colon/consts/consts.dart';
 const sliderList = [imgSlider1, imgSlider2, imgSlider3, imgSlider4];
 
 final List<String> categoriesList = [
-  "Kategoriler",
+  "≡Kategoriler",
   "Kadın",
   "Erkek",
+  "Ev & Yaşam",
   "Moda",
   "Elektronik",
-  "Ev & Yaşam",
   "Spor",
   "Kitap",
 ];
@@ -19,36 +19,88 @@ imgYemek, imgDolap, imgMarket, imgKupon
 ];
 
 const List<Map<String, dynamic>> specialProductsList = [
-  {"imagePath": imgDolap, "title": "Flash Ürün 1", "price": 49.99},
-  {"imagePath": imgKupon, "title": "Flash Ürün 2", "price": 79.99},
-  {"imagePath": imgMarket, "title": "Flash Ürün 3", "price": 99.99},
-  {"imagePath": imgYemek, "title": "Flash Ürün 4", "price": 59.99},
-  {"imagePath": imgDolap, "title": "Flash Ürün 5", "price": 89.99},
+  {"imagePath": urun6, "title": "STANLEY The Aerolight", "price": 49.99},
+  {"imagePath": urun2, "title": "MAVİ Erkek Sweat", "price": 79.99},
+  {"imagePath": urun3, "title": "STANLEY The Aerolight ", "price": 99.99},
+  {"imagePath": urun4, "title": "MAVİ Kadın Sweat", "price": 59.99},
+  {"imagePath": urun5, "title": "MAVİ Kadın Sweat", "price": 89.99},
 ];
 
 const List<Map<String, dynamic>> flashProductsList = [
-  {"imagePath": imgDolap, "title": "Flash Ürün 1", "price": 29.99},
-  {"imagePath": imgKupon, "title": "Flash Ürün 2", "price": 39.99},
-  {"imagePath": imgMarket, "title": "Flash Ürün 3", "price": 59.99},
-  {"imagePath": imgYemek, "title": "Flash Ürün 4", "price": 19.99},
-  {"imagePath": imgDolap, "title": "Flash Ürün 5", "price": 49.99},
+  {"imagePath": urun4, "title": "MAVİ Kadın Sweat", "price": 59.99},
+  {"imagePath": urun5, "title": "MAVİ Kadın Sweat", "price": 89.99},
+  {"imagePath": urun6, "title": "STANLEY The Aerolight", "price": 49.99},
+  {"imagePath": urun2, "title": "MAVİ Erkek Sweat", "price": 79.99},
+  {"imagePath": urun3, "title": "STANLEY The Aerolight ", "price": 99.99},
+  {"imagePath": urun4, "title": "MAVİ Kadın Sweat", "price": 59.99},
+  {"imagePath": urun5, "title": "MAVİ Kadın Sweat", "price": 89.99},
 ];
+
+const brandsList = [
+  imgYemek, imgDolap, imgMarket, imgKupon, imgYemek, imgDolap, imgMarket, imgKupon
+
+];
+
+
+
+
 
 const List<Map<String, dynamic>> products = [
   {
-    "imagePath": "assets/images/product1.png",
+    "imagePath": urun5,
     "title": "Ürün 1",
     "price": 99.99,
+    "category": "Kadın",
   },
   {
-    "imagePath": "assets/images/product2.png",
-    "title": "Ürün 2",
-    "price": 149.49,
+    "imagePath": urun4,
+    "title": "Ürün 1",
+    "price": 99.99,
+    "category": "Kadın",
   },
   {
-    "imagePath": "assets/images/product3.png",
-    "title": "Ürün 3",
-    "price": 199.99,
+    "imagePath": urun5,
+    "title": "Ürün 1",
+    "price": 99.99,
+    "category": "Kadın",
   },
+  {
+    "imagePath": urun5,
+    "title": "Ürün 1",
+    "price": 99.99,
+    "category": "Kadın",
+  },
+
+
+  {
+    "imagePath": urun2,
+    "title": "Ürün 1",
+    "price": 99.99,
+    "category": "Erkek",
+  },  {
+    "imagePath": urun2,
+    "title": "Ürün 1",
+    "price": 99.99,
+    "category": "Erkek",
+  },
+
+
+  {
+    "imagePath": urun6,
+    "title": "Ürün 1",
+    "price": 99.99,
+    "category": "Ev & Yaşam",
+  },  {
+    "imagePath": urun3,
+    "title": "Ürün 1",
+    "price": 99.99,
+    "category": "Ev & Yaşam",
+  },
+
+
+
+
+
+
 ];
 List<Map<String, dynamic>> cartItems = [];

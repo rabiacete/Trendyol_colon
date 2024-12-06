@@ -7,6 +7,8 @@ import 'package:trendyol_colon/views/category_screen/category_screen.dart';
 import 'package:trendyol_colon/views/home_screen/home_screen.dart';
 import 'package:trendyol_colon/views/profile_screen/profile_screen.dart';
 
+import '../../consts/lists.dart';
+
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -29,7 +31,10 @@ class Home extends StatelessWidget {
 
     var navBody = [
       HomeScreen(),
-      CategoryScreen(),
+      CategoryScreen(
+        categoryName: "Kadın", // Örnek bir kategori adı
+        products: products.where((product) => product["category"] == "Kadın").toList(), // Kadın kategorisindeki ürünler
+      ),
       CartScreen(),
       ProfileScreen()
 

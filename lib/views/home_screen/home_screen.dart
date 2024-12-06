@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trendyol_colon/views/home_screen/search_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 import '../../consts/lists.dart';
 import 'package:trendyol_colon/consts/consts.dart';
 
+import '../../controllers/category_controller.dart';
 import '../ProductDetailScreen/product_detail.dart';
 import '../cart_screen/cart_screen.dart';
-import '../../controllers/home_controller.dart'; // HomeController importunu ekledik
+import '../../controllers/home_controller.dart';
+import '../category_screen/category_screen.dart';
+import '../favorites_screen/favorites_screen.dart'; // HomeController importunu ekledik
 
 
 class HomeScreen extends StatelessWidget {
@@ -14,6 +18,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final categoryController = Get.put(CategoryController());
+
+
 
     var controller = Get.find<HomeController>(); // HomeController'ı buluyoruz
     return Scaffold(
@@ -30,6 +38,16 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
+                      child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                SearchPage(products: specialProductsList), // SearchPage yönlendirmesi
+                          ),
+                        );
+                      },
                       child: Container(
                         height: 40,
                         padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -41,19 +59,17 @@ class HomeScreen extends StatelessWidget {
                           children: [
                             const Icon(Icons.search, color: Colors.orange),
                             10.widthBox,
-                            const Expanded(
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: "Ürün Arayın...",
-                                  border: InputBorder.none,
-                                ),
-                              ),
+                            const Text(
+                              "Ürün Arayın...",
+                              style: TextStyle(color: Colors.grey),
                             ),
                           ],
                         ),
                       ),
                     ),
+                    ),
                     10.widthBox,
+
                     const Icon(Icons.email, color: Colors.orange, size: 30),
                     15.widthBox,
                     const Icon(Icons.notifications, color: Colors.orange, size: 30),
@@ -61,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 15.heightBox,
 
-                // Kategoriler
+                /* // Kategoriler
                 SizedBox(
                   height: 40,
                   child: ListView(
@@ -79,7 +95,49 @@ class HomeScreen extends StatelessWidget {
                     ))
                         .toList(),
                   ),
+                ),*/
+
+
+
+                SizedBox(
+                  height: 40,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: categoriesList
+                        .map(
+                          (category) => Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: GestureDetector(
+                          onTap: () {
+                            final filteredProducts =
+                            categoryController.getCategoryProducts(category);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CategoryScreen(
+                                  categoryName: category,
+                                  products: filteredProducts,
+                                ),
+                              ),
+                            );
+                          },
+                          child: Chip(
+                            backgroundColor: Colors.white,
+                            label: Text(
+                              category,
+                              style: const TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
+                        .toList(),
+                  ),
                 ),
+
+
+
+
                 15.heightBox,
 
                 // Slider
@@ -252,12 +310,64 @@ class HomeScreen extends StatelessWidget {
                     },
                   ),
                 ),
+
+
+
+                20.heightBox,
+
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: "Markalar"
+                      .text
+                      .size(18)
+                      .bold
+                      .make()
+                      .marginOnly(left: 8, bottom: 10),
+                ),
+                SingleChildScrollView( // Dıştaki scrollView, tüm sayfa kayabilir
+                  child: Column(
+                    children: List.generate(brandsList.length, (index) {
+                      return Container(
+                        width: double.infinity, // Genişliği tam ekran yapıyoruz
+                        margin: const EdgeInsets.symmetric(vertical: 8), // Dikey boşluk
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 120,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                image: DecorationImage(
+                                  image: AssetImage(brandsList[index]),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ),
+                ),
+
+
+
+
+
+
+
+
               ],
             ),
           ),
         ),
       ),
-      // Alt gezinme çubuğu
+
+
+
+
+
+
       // Alt gezinme çubuğu
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.orange,
@@ -292,11 +402,20 @@ class HomeScreen extends StatelessWidget {
               context,
               MaterialPageRoute(builder: (context) => const CartScreen()),
             );
+          } else if (index == 2) { // Favoriler
+           Navigator.push(
+           context,
+            MaterialPageRoute(builder: (context) => const FavoritesScreen()),
+            );
           } else {
             controller.currentNavIndex.value = index;
           }
         },
       ),
+
+
+
     );
-  }
-}
+  }}
+
+
